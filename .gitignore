@@ -14,5 +14,6 @@ tests
 *.apk
 */.idea/workspace.xml
 */.idea/tasks.xml
+.idea
 android/client/.idea/workspace.xml
 android/clientbeta/.idea/workspace.xml
