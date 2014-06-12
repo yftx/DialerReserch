@@ -22,5 +22,8 @@
         <activity
                 android:name=".LifeCircle.LifeCircleActivity"
                 android:label="Activity及Fragment生命周期"/>
+        <activity
+                android:name=".HandlerThread.HandlerThreadActivity"
+                android:label="HandlerThread"/>
     </application>
 </manifest>
