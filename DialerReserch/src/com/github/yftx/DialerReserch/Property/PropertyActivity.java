@@ -13,6 +13,7 @@ import java.util.Properties;
 /**
  * Created by yftx on 6/12/14.
  * 测试Property类对文件的读取
+ * 一般用来读取配置文件
  */
 public class PropertyActivity extends Activity {
     TextView mContent;
@@ -27,7 +28,6 @@ public class PropertyActivity extends Activity {
         mContent = (TextView) findViewById(R.id.content);
         readProperty();
         showProperty();
-
     }
 
     private void showProperty() {

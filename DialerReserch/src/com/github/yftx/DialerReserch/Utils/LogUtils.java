@@ -40,6 +40,10 @@ public class LogUtils {
         if (BuildConfig.DEBUG)
             android.util.Log.d(TAG, buildMessage(msg));
     }
+    public static void d(){
+        if (BuildConfig.DEBUG)
+            android.util.Log.d(TAG, buildMessage("for debug life circle"));
+    }
 
     /**
      * Send a DEBUG log message and log the exception.
