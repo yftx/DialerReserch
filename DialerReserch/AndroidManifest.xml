@@ -25,5 +25,8 @@
         <activity
                 android:name=".HandlerThread.HandlerThreadActivity"
                 android:label="HandlerThread"/>
+        <activity
+                android:name=".MergeAdapter.MergeAdapterActivity"
+                android:label="MergeAdapter"/>
     </application>
 </manifest>
