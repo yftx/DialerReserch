@@ -1,10 +1,11 @@
 package com.github.yftx.DialerReserch.MergeAdapter.adapter;
 
+import android.content.Context;
 import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.github.yftx.DialerReserch.Utils.LogUtils;
+import com.github.yftx.DialerReserch.MergeAdapter.swipe.SwipeLayout;
 
 /**
  * Created by yftx on 6/13/14.
@@ -17,13 +18,15 @@ public class MergeAdaoter extends BaseAdapter {
     Adapter1 mAdapter1;
     Adapter2 mAdapter2;
     DataSetObserver mObserver;
+    Context mContext;
 
     //typeid 必须从0开始基数
     public static final int TYPE1 = 0;
     public static final int TYPE2 = 1;
 
 
-    public MergeAdaoter(Adapter1 adapter1, Adapter2 adapter2) {
+    public MergeAdaoter(Context context, Adapter1 adapter1, Adapter2 adapter2) {
+        mContext = context;
         mAdapter1 = adapter1;
         mAdapter2 = adapter2;
         mObserver = new CustomObserver();
@@ -66,10 +69,22 @@ public class MergeAdaoter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         int type = getItemViewType(position);
-        LogUtils.d("tyoe " + type + " relative postion " + getAdustPostion(position));
         switch (type) {
             case TYPE1:
-                return mAdapter1.getView(getAdustPostion(position), convertView, parent);
+                //adapter1中的view可以滑动删除
+                final SwipeLayout wrapper;
+                if (convertView == null) {
+                    wrapper = new SwipeLayout(mContext);
+                } else {
+                    wrapper = (SwipeLayout) convertView;
+                }
+                final View view = mAdapter1.getView(getAdustPostion(position),
+                        convertView == null ? null : wrapper.getChildAt(0), parent);
+                wrapper.removeAllViews();
+                view.setTranslationX(0);
+                view.setAlpha(1);
+                wrapper.addView(view);
+                return wrapper;
             case TYPE2:
                 return mAdapter2.getView(getAdustPostion(position), convertView, parent);
             default:

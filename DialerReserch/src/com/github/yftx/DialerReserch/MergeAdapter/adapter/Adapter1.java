@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Created by yftx on 6/13/14.
+ *
+ * Adapter1中返回的view可以滑动删除
  */
 public class Adapter1 extends BaseAdapter implements IRefresh {
     List<String> mDatas;

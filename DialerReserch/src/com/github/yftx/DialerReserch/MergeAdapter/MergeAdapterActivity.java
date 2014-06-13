@@ -29,7 +29,7 @@ public class MergeAdapterActivity extends Activity implements View.OnClickListen
     private void initData() {
         mAdapter1 = new Adapter1(getLayoutInflater());
         mAdapter2 = new Adapter2(getLayoutInflater());
-        mAdapter = new MergeAdaoter(mAdapter1, mAdapter2);
+        mAdapter = new MergeAdaoter(this,mAdapter1, mAdapter2);
         mListView.setAdapter(mAdapter);
     }
 
