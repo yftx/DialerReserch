@@ -5,12 +5,11 @@ import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.github.yftx.DialerReserch.MergeAdapter.swipe.SwipeLayout;
 
 /**
  * Created by yftx on 6/13/14.
  */
-public class MergeAdaoter extends BaseAdapter {
+public class MergeAdapter extends BaseAdapter {
     /**
      * 该Adapter显示样式为先显示Adapter1 后显示Adapter2
      */
@@ -25,7 +24,7 @@ public class MergeAdaoter extends BaseAdapter {
     public static final int TYPE2 = 1;
 
 
-    public MergeAdaoter(Context context, Adapter1 adapter1, Adapter2 adapter2) {
+    public MergeAdapter(Context context, Adapter1 adapter1, Adapter2 adapter2) {
         mContext = context;
         mAdapter1 = adapter1;
         mAdapter2 = adapter2;
@@ -72,7 +71,7 @@ public class MergeAdaoter extends BaseAdapter {
         switch (type) {
             case TYPE1:
                 //adapter1中的view可以滑动删除
-                final SwipeLayout wrapper;
+/*                final SwipeLayout wrapper;
                 if (convertView == null) {
                     wrapper = new SwipeLayout(mContext);
                 } else {
@@ -84,7 +83,9 @@ public class MergeAdaoter extends BaseAdapter {
                 view.setTranslationX(0);
                 view.setAlpha(1);
                 wrapper.addView(view);
-                return wrapper;
+                SwipeHelper.setSwipeable(wrapper, true);
+                return wrapper;*/
+                return mAdapter1.getView(getAdustPostion(position), convertView, parent);
             case TYPE2:
                 return mAdapter2.getView(getAdustPostion(position), convertView, parent);
             default:

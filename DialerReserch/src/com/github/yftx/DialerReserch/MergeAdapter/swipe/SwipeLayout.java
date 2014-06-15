@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import com.github.yftx.DialerReserch.R;
+import com.github.yftx.DialerReserch.Utils.LogUtils;
 
 /**
  * Created by yftx on 6/13/14.
@@ -37,6 +38,7 @@ public class SwipeLayout extends FrameLayout implements SwipeHelper.SwipeHelperC
 
     @Override
     public View getChildAtPosition(MotionEvent ev) {
+        LogUtils.d(" child count " + getChildCount());
         return getChildCount() > 0 ? getChildAt(0) : null;
     }
 
@@ -74,6 +76,7 @@ public class SwipeLayout extends FrameLayout implements SwipeHelper.SwipeHelperC
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        LogUtils.d("mSwipeHelper " + mSwipeHelper);
         if (mSwipeHelper != null) {
             return mSwipeHelper.onInterceptTouchEvent(ev) || super.onInterceptTouchEvent(ev);
         } else {
@@ -83,6 +86,7 @@ public class SwipeLayout extends FrameLayout implements SwipeHelper.SwipeHelperC
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        LogUtils.d("mSwipeHelper " + mSwipeHelper);
         if (mSwipeHelper != null) {
             return mSwipeHelper.onTouchEvent(ev) || super.onTouchEvent(ev);
         } else {

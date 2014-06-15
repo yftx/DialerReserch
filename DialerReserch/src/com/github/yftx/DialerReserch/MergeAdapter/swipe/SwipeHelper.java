@@ -30,6 +30,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.github.yftx.DialerReserch.R;
+import com.github.yftx.DialerReserch.Utils.LogUtils;
 
 public class SwipeHelper {
     static final String TAG = SwipeHelper.class.getSimpleName();
@@ -208,11 +209,14 @@ public class SwipeHelper {
 
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         final int action = ev.getAction();
+        LogUtils.d(String.format("action %d ", action));
+        LogUtils.d("mCurrView " + mCurrView + " mDragging " + mDragging);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 mLastY = ev.getY();
                 mDragging = false;
                 mCurrView = mCallback.getChildAtPosition(ev);
+                LogUtils.d("mCurrView " + mCurrView);
                 mVelocityTracker.clear();
                 if (mCurrView != null) {
                     mCurrAnimView = mCallback.getChildContentView(mCurrView);
@@ -344,11 +348,13 @@ public class SwipeHelper {
     }
 
     public boolean onTouchEvent(MotionEvent ev) {
+        LogUtils.d(" mDragging " + mDragging + " mProteted " + mProtected);
         if (!mDragging || mProtected) {
             return false;
         }
         mVelocityTracker.addMovement(ev);
         final int action = ev.getAction();
+        LogUtils.d("action " + action);
         switch (action) {
             case MotionEvent.ACTION_OUTSIDE:
             case MotionEvent.ACTION_MOVE:

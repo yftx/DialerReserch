@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.github.yftx.DialerReserch.MergeAdapter.swipe.SwipeHelper;
 import com.github.yftx.DialerReserch.R;
 
 import java.util.ArrayList;
@@ -12,10 +13,10 @@ import java.util.List;
 
 /**
  * Created by yftx on 6/13/14.
- *
+ * <p/>
  * Adapter1中返回的view可以滑动删除
  */
-public class Adapter1 extends BaseAdapter implements IRefresh {
+public class Adapter1 extends BaseAdapter implements IRefresh, SwipeHelper.OnItemGestureListener {
     List<String> mDatas;
     LayoutInflater mInflater;
     private static String PRE_CONTENT = "Adapter1 @ ";
@@ -44,17 +45,18 @@ public class Adapter1 extends BaseAdapter implements IRefresh {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if(convertView ==null){
-            convertView = mInflater.inflate(R.layout.adapter_layout,null,false);
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.adapter_layout, null, false);
             holder = new ViewHolder();
             holder.content = (TextView) convertView.findViewById(R.id.content);
             holder.container = convertView.findViewById(R.id.container);
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.content.setText(PRE_CONTENT + getItem(position));
         holder.container.setBackgroundResource(BG_COLOR);
+        SwipeHelper.setSwipeable(convertView, true);
         return convertView;
     }
 
@@ -69,10 +71,25 @@ public class Adapter1 extends BaseAdapter implements IRefresh {
 
     @Override
     public int getItemViewType(int position) {
-        return MergeAdaoter.TYPE1;
+        return MergeAdapter.TYPE1;
     }
 
-    static class ViewHolder{
+    @Override
+    public void onSwipe(View view) {
+
+    }
+
+    @Override
+    public void onTouch() {
+
+    }
+
+    @Override
+    public boolean isSwipeEnabled() {
+        return true;
+    }
+
+    static class ViewHolder {
         TextView content;
         View container;
     }

@@ -3,18 +3,18 @@ package com.github.yftx.DialerReserch.MergeAdapter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 import com.github.yftx.DialerReserch.MergeAdapter.adapter.Adapter1;
 import com.github.yftx.DialerReserch.MergeAdapter.adapter.Adapter2;
-import com.github.yftx.DialerReserch.MergeAdapter.adapter.MergeAdaoter;
+import com.github.yftx.DialerReserch.MergeAdapter.adapter.MergeAdapter;
+import com.github.yftx.DialerReserch.MergeAdapter.swipe.SwipeListView;
 import com.github.yftx.DialerReserch.R;
 
 /**
  * Created by yftx on 6/12/14.
  */
 public class MergeAdapterActivity extends Activity implements View.OnClickListener {
-    ListView mListView;
-    MergeAdaoter mAdapter;
+    SwipeListView mListView;
+    MergeAdapter mAdapter;
     Adapter1 mAdapter1;
     Adapter2 mAdapter2;
 
@@ -29,12 +29,13 @@ public class MergeAdapterActivity extends Activity implements View.OnClickListen
     private void initData() {
         mAdapter1 = new Adapter1(getLayoutInflater());
         mAdapter2 = new Adapter2(getLayoutInflater());
-        mAdapter = new MergeAdaoter(this,mAdapter1, mAdapter2);
+        mAdapter = new MergeAdapter(this,mAdapter1, mAdapter2);
         mListView.setAdapter(mAdapter);
+        mListView.setOnItemSwipeListener(mAdapter1);
     }
 
     private void findViews() {
-        mListView = (ListView) findViewById(R.id.content);
+        mListView = (SwipeListView) findViewById(R.id.content);
         findViewById(R.id.adapter1).setOnClickListener(this);
         findViewById(R.id.adapter2).setOnClickListener(this);
     }

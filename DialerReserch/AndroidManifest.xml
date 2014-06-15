@@ -28,5 +28,8 @@
         <activity
                 android:name=".MergeAdapter.MergeAdapterActivity"
                 android:label="MergeAdapter"/>
+        <activity
+                android:name=".TouchReserch.TouchReserch"
+                android:label="Touch事件分发"/>
     </application>
 </manifest>

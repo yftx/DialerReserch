@@ -69,7 +69,7 @@ public class Adapter2 extends BaseAdapter implements IRefresh {
 
     @Override
     public int getItemViewType(int position) {
-        return MergeAdaoter.TYPE2;
+        return MergeAdapter.TYPE2;
     }
 
     static class ViewHolder {
