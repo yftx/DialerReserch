@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.yftx.DialerReserch.Utils.LogUtils;
 
 /**
  * Created by yftx on 6/15/14.
@@ -44,17 +45,23 @@ public class CustomViewGroup1 extends ViewGroup {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        return super.dispatchTouchEvent(event);
+        boolean temp = super.dispatchTouchEvent(event);
+        LogUtils.d("temp " + temp);
+        return temp;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+        boolean temp = super.onTouchEvent(event);
+        LogUtils.d("temp " + temp);
+        return temp;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return super.onInterceptTouchEvent(ev);
+        boolean temp = super.onInterceptTouchEvent(ev);
+        LogUtils.d("temp " + temp);
+        return temp;
     }
 
 }

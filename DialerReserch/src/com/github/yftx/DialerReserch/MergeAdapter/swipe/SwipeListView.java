@@ -168,7 +168,6 @@ public class SwipeListView extends ListView implements SwipeHelper.SwipeHelperCa
             result = super.onInterceptTouchEvent(ev);
         }
         LogUtils.d(" result " + result);
-        result = true;
         return result;
     }
 

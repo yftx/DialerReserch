@@ -1,0 +1,55 @@
+－－－－－全部返回系统默认值
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onInterceptTouchEvent(): temp false
+CustomView.onTouchEvent(): temp false
+CustomView.dispatchTouchEvent(): temp false
+CustomViewGroup2.onTouchEvent(): temp false
+CustomViewGroup2.dispatchTouchEvent(): temp false
+CustomViewGroup1.onTouchEvent(): temp false
+CustomViewGroup1.dispatchTouchEvent(): temp false
+
+－－－－－CustomViewGroup1 onInterceptTouchEvent() 返回true
+CustomViewGroup1.onInterceptTouchEvent(): temp true
+CustomViewGroup1.onTouchEvent(): temp false
+CustomViewGroup1.dispatchTouchEvent(): temp false
+
+－－－－－CustomViewGroup2 onInterceptTouchEvent() 返回true
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onInterceptTouchEvent(): temp true
+CustomViewGroup2.onTouchEvent(): temp false
+CustomViewGroup2.dispatchTouchEvent(): temp false
+CustomViewGroup1.onTouchEvent(): temp false
+CustomViewGroup1.dispatchTouchEvent(): temp false
+
+－－－－－CustomViewGroup1 onTouchEvent() 返回true
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onInterceptTouchEvent(): temp false
+CustomView.onTouchEvent(): temp false
+CustomView.dispatchTouchEvent(): temp false
+CustomViewGroup2.onTouchEvent(): temp false
+CustomViewGroup2.dispatchTouchEvent(): temp false
+CustomViewGroup1.onTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+CustomViewGroup1.onTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+CustomViewGroup1.onTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+
+－－－－－CustomViewGroup2 onTouchEvent() 返回true
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onInterceptTouchEvent(): temp false
+CustomView.onTouchEvent(): temp false
+CustomView.dispatchTouchEvent(): temp false
+CustomViewGroup2.onTouchEvent(): temp true
+CustomViewGroup2.dispatchTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onTouchEvent(): temp true
+CustomViewGroup2.dispatchTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+CustomViewGroup1.onInterceptTouchEvent(): temp false
+CustomViewGroup2.onTouchEvent(): temp true
+CustomViewGroup2.dispatchTouchEvent(): temp true
+CustomViewGroup1.dispatchTouchEvent(): temp true
+
+

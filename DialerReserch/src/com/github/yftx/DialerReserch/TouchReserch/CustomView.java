@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import com.github.yftx.DialerReserch.Utils.LogUtils;
 
 /**
  * Created by yftx on 6/15/14.
@@ -31,11 +32,16 @@ public class CustomView extends View {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        return super.dispatchTouchEvent(event);
+        boolean temp = super.dispatchTouchEvent(event);
+        LogUtils.d("temp " + temp);
+        return temp;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+        boolean temp = super.onTouchEvent(event);
+        LogUtils.d("temp " + temp);
+        return temp;
     }
+
 }
